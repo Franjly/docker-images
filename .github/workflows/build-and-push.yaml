@@ -37,7 +37,7 @@ jobs:
           build_number=$(date '+%Y%m%d%H%M%S')
 
           # Replace '/' characters in folder names with '-'
-          folder_name="${folder//\//-}
+          folder_name="${folder//\//-}"
           
           # Build the Docker image with the generated build number as a tag
           docker build -t ${{ secrets.DOCKER_USERNAME }}/$folder_name:$build_number $folder
