@@ -16,7 +16,11 @@ jobs:
     - name: Get changed folders
       id: get-changed-folders
       run: |
-        changed_folders=$(git diff --name-only HEAD^ HEAD | grep 'Dockerfile' | sed 's|/[^/]*$||' | sort -u)
+        if git rev-parse --verify HEAD~1; then
+          changed_folders=$(git diff --name-only HEAD~1 HEAD | grep 'Dockerfile' | sed 's|/[^/]*$||' | sort -u)
+        else
+          changed_folders=$(git ls-tree --name-only -r HEAD | grep 'Dockerfile' | xargs -n 1 dirname | sort -u)
+        fi
         echo "::set-output name=changed_folders::$changed_folders"
 
     - name: Login to Docker Hub
