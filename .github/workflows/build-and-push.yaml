@@ -61,7 +61,8 @@ jobs:
           changed_folders="${changed_folders}"
           for folder in $changed_folders; do
             folder_name="${folder//\//-}"
-            docker manifest create ${{ secrets.DOCKER_USERNAME }}/$folder_name:$build_number ${{ secrets.DOCKER_USERNAME }}/$folder_name:$build_number-arm64
+            docker manifest create ${{ secrets.DOCKER_USERNAME }}/$folder_name:$build_number ${{ secrets.DOCKER_USERNAME }}/$folder_name:$build_number ${{ secrets.DOCKER_USERNAME }}/$folder_name:$build_number-arm64
+            docker manifest annotate ${{ secrets.DOCKER_USERNAME }}/$folder_name:$build_number ${{ secrets.DOCKER_USERNAME }}/$folder_name:$build_number-arm64 --os linux --arch arm64
             docker manifest push ${{ secrets.DOCKER_USERNAME }}/$folder_name:$build_number
           done
         if: always()
