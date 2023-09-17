@@ -43,3 +43,8 @@ RUN apk add --update --no-cache git
 
 # Clean up
 RUN rm -rf /var/cache/apk/*
+
+WORKDIR /build
+
+# Set argocd plugin user id
+USER 999
