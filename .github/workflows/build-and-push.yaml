@@ -47,5 +47,5 @@ jobs:
             folder_name="${folder//\//-}"
             
             # Build the Docker image with the generated build number as a tag
-            docker buildx build --push --platform linux/amd64,linux/arm/v7 -t ${{ secrets.DOCKER_USERNAME }}/$folder_name:$build_number $folder
+            docker buildx build --push --platform linux/amd64,linux/arm/v7 -t ${{ secrets.DOCKER_USERNAME }}/$folder_name:$build_number $folder -t ${{ secrets.DOCKER_USERNAME }}/$folder_name:latest $folder
           done
