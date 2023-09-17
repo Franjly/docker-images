@@ -36,10 +36,11 @@ COPY --from=builder /tmp/argocd-vault-plugin /usr/local/bin/argocd-vault-plugin
 RUN chmod +x /usr/local/bin/kubectl /usr/local/bin/helm /usr/local/bin/kustomize /usr/local/bin/argocd-vault-plugin
 
 # Install Git
+COPY --from=builder /tmp/git-${GIT_VERSION} /tmp/git-${GIT_VERSION}
 
 RUN cd /tmp/git-${GIT_VERSION} && \
     make prefix=/usr/local all && \
     make prefix=/usr/local install
 
 # Clean up
-RUN rm -rf /tmp/git*
+RUN rm -rf /tmp/*
