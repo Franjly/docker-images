@@ -28,9 +28,6 @@ jobs:
           else
             changed_folders=$(git ls-tree --name-only -r HEAD | grep 'Dockerfile' | xargs -n 1 dirname | sort -u | sed ':a;N;$!ba;s/\n/ /g')
           fi
-
-          echo "$changed_folders"
-
           echo "changed_folders=${changed_folders}" >> $GITHUB_ENV
 
       - name: Login to Docker Hub
