@@ -29,7 +29,7 @@ jobs:
             changed_folders=$(git ls-tree --name-only -r HEAD | grep 'Dockerfile' | xargs -n 1 dirname | sort -u)
           fi
 
-          echo "changed_folders"
+          echo "$changed_folders"
 
           echo "changed_folders=argocd/plugins/vault" >> $GITHUB_ENV
 
