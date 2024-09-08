@@ -1,8 +1,8 @@
 # https://argo-cd.readthedocs.io/en/stable/operator-manual/custom_tools/
-FROM quay.io/argoproj/argocd:v2.8.3
+FROM quay.io/argoproj/argocd:v2.12.3
 
 # Set environment variables for tool versions
-ARG ARGOCD_VAULT_PLUGIN_VERSION=1.16.1
+ARG ARGOCD_VAULT_PLUGIN_VERSION=1.18.1
 ARG ARCH=arm64
 
 # Switch to root for the ability to perform install
