@@ -19,7 +19,7 @@ RUN \
     /tmp/* \
     /var/lib/apt/lists/* \
     /var/tmp/ \
-  && printf "umask %d" "${UMASK}" >> /etc/bash.bashrc \
+  && printf "umask %d" "${UMASK}" >> /etc/bash.bashrc
 
 USER apps
 
