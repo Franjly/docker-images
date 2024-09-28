@@ -19,9 +19,7 @@ RUN \
     /tmp/* \
     /var/lib/apt/lists/* \
     /var/tmp/ \
-  && chmod -R u=rwX,go=rX /app \
-  && printf "umask %d" "${UMASK}" >> /etc/bash.bashrc \
-  && update-ca-certificates
+  && printf "umask %d" "${UMASK}" >> /etc/bash.bashrc
 
 USER apps
 
