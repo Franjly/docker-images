@@ -1,5 +1,5 @@
 # https://argo-cd.readthedocs.io/en/stable/operator-manual/custom_tools/
-FROM quay.io/argoproj/argocd:v2.12.3
+FROM quay.io/argoproj/argocd:v3.1.0
 
 # Set environment variables for tool versions
 ARG ARGOCD_VAULT_PLUGIN_VERSION=1.18.1
